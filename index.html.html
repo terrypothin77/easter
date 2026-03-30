@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Easter Songs – Sing-Along Links</title>
+<style>
+:root{
+ --bg:#0b1220; --card:#111a33; --text:#eef3ff; --muted:#b8c4e3;
+ --accent:#9ad6ff; --link:#ffe07a; --focus:#69f0ae;
+}
+@media (prefers-color-scheme: light){
+ :root{ --bg:#f7fbff; --card:#ffffff; --text:#1c2438;
+ --muted:#50618a; --accent:#006ad4; --link:#b35c00; --focus:#0b8; }
+}
+html, body { height:100%; }
+body { margin:0; font-family:system-ui; background:var(--bg); color:var(--text); }
+header{ background:var(--card); border-bottom:1px solid #33456b; padding:20px; text-align:center; }
+h1{ margin:0; }
+.wrap{ width:min(900px,92%); margin:20px auto; }
+.controls{ display:flex; gap:10px; margin:10px 0; }
+input[type=search]{ flex:1; padding:10px; background:var(--card); border:1px solid #3a4a72; color:var(--text); border-radius:8px; }
+button{ background:#234; color:var(--text); border:1px solid #3a4a72; padding:10px 14px; border-radius:8px; cursor:pointer; }
+.list{ background:var(--card); border:1px solid #33456b; border-radius:14px; overflow:hidden; }
+.item{ display:flex; justify-content:space-between; padding:14px; border-bottom:1px solid #2a3d62; }
+.item:last-child{ border-bottom:0; }
+.title{ font-weight:600; }
+.go{ color:var(--link); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+<header><h1>🎶 Easter Songs</h1><p>Tap a song to open the lyrics</p></header>
+<div class='wrap'>
+<div class='controls'>
+<input id='search' type='search' placeholder='Search songs...'>
+<button id='sort'>Sort A–Z</button>
+</div>
+<div id='list' class='list'>
+<div class='item' data-title='All Things Bright and Beautiful'><div class='title'>All Things Bright and Beautiful</div><a class='go' target='_blank' href='https://terrypothin77.github.io/easter/all_things_bright_and_beautiful_easter_fixed.html'>Open lyrics ↗</a></div>
+<div class='item' data-title='Happy Day'><div class='title'>Happy Day</div><a class='go' target='_blank' href='https://terrypothin77.github.io/easter/happy_day_easter.html'>Open lyrics ↗</a></div>
+<div class='item' data-title='Morning Has Broken'><div class='title'>Morning Has Broken</div><a class='go' target='_blank' href='https://terrypothin77.github.io/easter/morning_has_broken_easter.html'>Open lyrics ↗</a></div>
+<div class='item' data-title='Outrageous Grace'><div class='title'>Outrageous Grace</div><a class='go' target='_blank' href='https://terrypothin77.github.io/easter/outrageous_grace_easter.html'>Open lyrics ↗</a></div>
+
+</div>
+</div>
+<script>
+let list = document.querySelector('#list');
+function itemsArray(){ return Array.from(document.querySelectorAll('#list .item')); }
+let aToZ = true;
+
+document.querySelector('#search').addEventListener('input', function(e){
+  const q = e.target.value.toLowerCase();
+  itemsArray().forEach(function(li){
+    li.style.display = li.dataset.title.toLowerCase().includes(q) ? '' : 'none';
+  });
+});
+
+document.querySelector('#sort').addEventListener('click', function(){
+  const sorted = itemsArray().sort(function(a,b){
+    return aToZ ? a.dataset.title.localeCompare(b.dataset.title)
+                : b.dataset.title.localeCompare(a.dataset.title);
+  });
+  sorted.forEach(function(el){ list.appendChild(el); });
+  aToZ = !aToZ;
+  document.querySelector('#sort').textContent = aToZ ? 'Sort A–Z' : 'Sort Z–A';
+});
+</script>
+</body>
+</html>

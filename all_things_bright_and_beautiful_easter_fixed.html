@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Things Bright and Beautiful – Lyrics</title>
+  <meta name="description" content="Mobile-friendly lyrics for Silent Night." />
+  <style>
+    :root{ --bg:#0b1220; --card:#111a33; --text:#eef3ff; --muted:#b8c4e3; --accent:#9ad6ff; --link:#ffe07a; --focus:#69f0ae; }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f7fbff; --card:#ffffff; --text:#1c2438; --muted:#50618a; --accent:#006ad4; --link:#b35c00; --focus:#0b8; } }
+    html, body { height: 100%; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    header { position: sticky; top: 0; z-index: 10; background: var(--card); border-bottom: 1px solid #33456b; padding: 16px; text-align: center; }
+    h1 { margin: 0; font-size: clamp(1.4rem, 2.8vw, 2rem); }
+    .subtitle { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+    .wrap { width: min(900px, 92%); margin: 16px auto 40px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin: 12px 0; }
+    button { background:#234; color:var(--text); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; cursor:pointer; }
+    button:focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .back-link { background:#234; color:var(--link); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
+    main { background: var(--card); border: 1px solid #33456b; border-radius: 14px; padding: 18px; }
+    section { margin: 16px 0; }
+    h2 { margin: 0 0 8px; font-size: 1.2rem; }
+    pre { white-space: pre-wrap; line-height: 1.55; font-size: var(--fs, 1.06rem); }
+    .top { display:inline-block; margin-top:8px; color: var(--accent); text-decoration: none; }
+    footer { color: var(--muted); text-align: center; margin: 20px 0 30px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <h1>All Things Bright and Beautiful</h1>
+    <p class="subtitle">InHealth Easter Songs</p>
+    <div class="controls">
+      <button id="smaller" aria-label="Decrease font size">A−</button>
+      <button id="larger" aria-label="Increase font size">A+</button>
+      <a class="back-link" href="https://terrypothin77.github.io/easter/">← Back to Main Page</a>
+      <a class="top" href="#verse1" style="margin-left:8px">Jump to Verse 1 ↓</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main>
+<section id="Chorus">
+<h2>Chorus</h2>
+<pre>
+All things bright and beautiful
+All creatures great and small
+All things wise and wonderful
+The Lord God made them all
+</pre>
+<a class="top" href="#top">↑ Back to top</a>
+</section>
+<section id="Verse1">
+<h2>Verse 1</h2>
+<pre>
+Each little flower that opens
+Each little bird that sings
+He made their glowing colours
+He made their tiny wings
+</pre>
+<a class="top" href="#top">↑ Back to top</a>
+</section>
+<section id="Verse2">
+<h2>Verse 2</h2>
+<pre>
+The purple-headed mountain
+The river running by
+The sunset and the morning
+That brightens up the sky
+</pre>
+<a class="top" href="#top">↑ Back to top</a>
+</section>
+<section id="Verse3">
+<h2>Verse 3</h2>
+<pre>
+The cold wind in the winter
+The pleasant summer sun
+The ripe fruits in the garden
+He made them every one
+</pre>
+<a class="top" href="#top">↑ Back to top</a>
+</section>
+<section id="Verse4">
+<h2>Verse 4</h2>
+<pre>
+He gave us eyes to see them
+And lips that we might tell
+How great is God Almighty
+Who has made all things well
+</pre>
+<a class="top" href="#top">↑ Back to top</a>
+</section>
+</main>
+
+    <footer>
+      InHealth Easter Songs. • © Michael Perry (1942 - 1996) © Mrs B Perry/Jubilate Hymns 9998 Irregular and Refrain
+    </footer>
+  </div>
+
+  <script>
+    // Simple font resize controls
+    let size = 1.06; // rem
+    const setSize = () => document.documentElement.style.setProperty('--fs', size + 'rem');
+    setSize();
+    document.getElementById('larger').addEventListener('click', () => { size = Math.min(size + 0.08, 1.6); setSize(); });
+    document.getElementById('smaller').addEventListener('click', () => { size = Math.max(size - 0.08, 0.8); setSize(); });
+  </script>
+</body>
+</html>
